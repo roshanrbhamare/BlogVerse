@@ -23,7 +23,7 @@ app.get("/add", (req,res)=>{
 })
 app.post("/add", async (req,res)=>{
     try{
-        const response = await axios.post(`${apiurl}/add`, req.body);
+        await axios.post(`${apiurl}/add`, req.body);
         res.redirect("/");
     }
     catch{
@@ -53,7 +53,7 @@ app.post("/edit/:id", async (req,res)=>{
 
 app.get("/edit/delete/:id", async (req,res)=>{
     try{
-        await axios.delete(`${apiurl}/edit/${req.params.id}`);
+        await axios.delete(`${apiurl}/delete/${req.params.id}`);
         res.redirect("/");
     }
     catch{
